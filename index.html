@@ -31,6 +31,245 @@
   <link rel="stylesheet" href="assets/css/aos.css">
   <link rel="stylesheet" href="assets/css/progressbar.css">
   <link rel="stylesheet" href="assets/css/master.css">
+  <style>
+    .card-carousel-solution {
+      display: flex;
+      width: 100%;
+      overflow-x: hidden;
+      overflow: hidden;
+    }
+
+    .card-carousel-solution .scroll-container {
+      display: flex;
+      scrollbar-width: none;
+      animation: scroll 40s linear infinite;
+      animation-play-state: running;
+    }
+
+
+    .paused {
+      animation-play-state: paused !important;
+    }
+
+    .card-carousel-solution .single-card {
+      width: 430px;
+      margin: 20px;
+      min-width: 400px;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(calc(-430px * 2));
+      }
+    }
+
+    .linear-gradiant-bg {
+      margin: 0;
+      overflow: hidden;
+      width: 102%;
+      height: 680px;
+      transform: skewY(160deg);
+      font-family: "Exo", sans-serif;
+      color: #fff;
+      background-image: linear-gradient(45deg,
+          hsl(240deg 100% 20%) 0%,
+          hsl(289deg 100% 21%) 7%,
+          hsl(315deg 100% 27%) 14%,
+          hsl(329deg 100% 36%) 23%,
+          hsl(337deg 100% 43%) 32%,
+          hsl(357deg 91% 59%) 44%,
+          hsl(17deg 100% 59%) 57%,
+          hsl(34deg 100% 53%) 72%,
+          hsl(45deg 100% 50%) 87%,
+          hsl(55deg 100% 50%) 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .gradients-container.g1 {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(18, 113, 255, 0.8) 0, rgba(221, 74, 255, 0) 50%) no-repeat;
+      mix-blend-mode: hard-light;
+
+      width: 80%;
+      height: 80%;
+      top: calc(50% - 80% / 2);
+      left: calc(50% - 80% / 2);
+
+      transform-origin: center center;
+      animation: moveVertical 30s ease infinite;
+
+      opacity: 1;
+    }
+
+    .gradients-container .g2 {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(221, 74, 255, 0.8) 0, rgba(221, 74, 255, 0) 50%) no-repeat;
+      mix-blend-mode: hard-light;
+
+      width: 80%;
+      height: 80%;
+      top: calc(50% - 80% / 2);
+      left: calc(50% - 80% / 2);
+
+      transform-origin: calc(50% - 400px);
+      animation: moveInCircle 20s reverse infinite;
+
+      opacity: 1;
+    }
+
+    .gradients-container .g3 {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(100, 220, 255, 0.8) 0, rgba(100, 220, 255, 0.8, 0) 50%) no-repeat;
+      mix-blend-mode: hard-light;
+
+      width: 80%;
+      height: 80%;
+      top: calc(50% - 80% / 2 + 200px);
+      left: calc(50% - 80% / 2 - 500px);
+
+      transform-origin: calc(50% + 400px);
+      animation: moveInCircle 40s linear infinite;
+
+      opacity: 1;
+    }
+
+    .gradients-container .g4 {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(200, 50, 50, 0.8) 0, rgba(200, 50, 50, 0) 50%) no-repeat;
+      mix-blend-mode: hard-light;
+
+      width: 80%;
+      height: 80%;
+      top: calc(50% -80% / 2);
+      left: calc(50% - 80% / 2);
+
+      transform-origin: calc(50% - 200px);
+      animation: moveHorizontal 40s ease infinite;
+
+      opacity: 0.7;
+    }
+
+    .gradients-container .g5 {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(180, 180, 50, 0.8) 0, rgba(180, 180, 50, 0) 50%) no-repeat;
+      mix-blend-mode: hard-light;
+
+      width: calc(80% * 2);
+      height: calc(80% * 2);
+      top: calc(50% - 80%);
+      left: calc(50% - 80%);
+
+      transform-origin: calc(50% - 800px) calc(50% + 200px);
+      animation: moveInCircle 20s ease infinite;
+
+      opacity: 1;
+    }
+
+    .gradients-container.interactive {
+      position: absolute;
+      background: radial-gradient(circle at center, rgba(140, 100, 255, 0.8) 0, rgba(140, 100, 255, 0.8, 0) 50%) no-repeat;
+      mix-blend-mode: hard-light;
+
+      width: 100%;
+      height: 100%;
+      top: -50%;
+      left: -50%;
+
+      opacity: 0.7;
+
+    }
+
+    .gradient-bg {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(40deg, rgb(108, 0, 162), rgb(0, 17, 82));
+      top: 0;
+      left: 0;
+    }
+
+    .gradient-bg svg {
+      display: none;
+    }
+
+
+    .gradients-container {
+      filter: url(#goo) blur(40px);
+      width: 100%;
+      height: 100%;
+    }
+
+    @keyframes moveInCircle {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(180deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes moveVertical {
+      0% {
+        transform: translateY(-50%);
+      }
+
+      50% {
+        transform: translateY(50%);
+      }
+
+      100% {
+        transform: translateY(-50%);
+      }
+    }
+
+    @keyframes moveHorizontal {
+      0% {
+        transform: translateX(-50%) translateY(-10%);
+      }
+
+      50% {
+        transform: translateX(50%) translateY(10%);
+      }
+
+      100% {
+        transform: translateX(-50%) translateY(-10%);
+      }
+    }
+
+    canvas {
+      width: 100%;
+      top: -249px;
+      transform: skew(-1deg, -12deg);
+      position: absolute;
+      z-index: 1;
+      height: 554px;
+    }
+  </style>
 
 
 </head>
@@ -114,9 +353,9 @@
     <div id="smooth-content">
       <!-- Header area start -->
       <header class="header__area pos-abs plr-100">
-        <div class="header__inner">
+        <div class="header__inner" style="display: flex; align-items: center;justify-content: space-around">
           <div class="header__logo">
-            <a href="index.html"><img src="assets/imgs/logo/axis-pro.png" style="width: 110px;" alt="Site Logo"></a>
+            <a href="index.html"><img src="assets/imgs/logo/logo.svg" style="width: 110px;" alt="Site Logo"></a>
           </div>
           <div class="header__menu">
             <nav class="main-menu">
@@ -137,13 +376,13 @@
               </ul>
             </nav>
           </div>
-          <div class="header__others">
+          <!-- <div class="header__others">
             <div class="header__offcanvas">
               <button class="menu_icon">
                 <img src="assets/imgs/icon/menu.png" alt="Menu Icon">
               </button>
             </div>
-          </div>
+          </div> -->
         </div>
       </header>
 
@@ -151,88 +390,109 @@
 
 
       <main>
-
-        <!-- Hero area start -->
+        <div>
+          <canvas id="canvas" width="32px" height="32px" data-js-controller="Gradient">
+        </div>
         <section class="hero__area">
           <div class="hero__inner">
-            <div class="hero__top">
-              <h1 class="hero__title heading-animation">
-                Making <span style="color: #8c8b8c;">your</span> <br> <a href="" id="hero_video"> <span
-                    style="background-color: #0d7e10;"><i class="fa-solid fa-play"></i></span></a> vision
-                reality
-              </h1>
-              <div class="hero__contact cxufadeUp2">
-                <a href="about.html">
-                  <span style="background-color: #0d7e10;"><i class="fa-solid fa-arrow-right"></i></span>
-                </a>
-                <div class="text">
-                  <p>Get in Touch</p>
+            <div class="container pt-4">
+              <div class="row ">
+                <div class="col-xxl-6 col-xl-6 col-xl-6 col-md-8 m-0 pt-5 ps-5">
+                  <h1 class="hero__title heading-animation"
+                    style="font-family: 'sohne-var','Helvetica Neue','Arial',sans-serif">
+                    In a world of digital<br> Possibilities, we are <br>the architects
+                  </h1>
                 </div>
+                <div class="col-md-6 d-flex align-items-center justify-content-end">
+                  <div class="hero__contact cxufadeUp2">
+                    <a href="about.html">
+                      <span style="background-color: #588d5d;"><i class="fa-solid fa-arrow-right"></i></span>
+                    </a>
+                    <div class="text">
+                      <p>Get in Touch</p>
+                    </div>
+                    <!-- <div class="main-img" style="position: absolute;
+                    right: -230px;
+                    top: -115px">
+                      <img src="assets/imgs/hero/ai-3.png" alt="Image" data-lag="0.2">
+                    </div> -->
+                  </div>
+                </div>
+                <!-- <img src="assets/imgs/" alt="Hero Image" data-lag="0.3"> -->
               </div>
             </div>
-            <div class="hero__btm">
-              <div class="p-animation">
-                <p>Creative agencies shape digital narratives, synergizing with software innovation.</p>
+            <div class="container pb-150 pt-3">
+              <div class="row">
+                <div class="col-xxl-6 col-xl-6 col-xl-6 col-md-6 m-0 pt-5 ps-5">
+                  <p style="width: 500px;">Develop powerful, highly usable mobile apps that solve business problems,
+                    attract users, and
+                    reinforce your brand. We build native, hybrid, and cross-platform apps that run on all major
+                    operating
+                    systems such as iOS and Android.</p>
+                  <div>
+                    <!-- <img class="shape-1  " src="assets/imgs/shape/1.png" alt="Shape">
+                    <img class="shape-2 " src="assets/imgs/shape/2.png" alt="Shape"> -->
+                    <!-- <img class="shape-3 " src="assets/imgs/shape/3.png" alt="Shape"> -->
+                    <img class="shape-4 cxuSpin-slow " style="padding-top: 100px;" src="assets/imgs/shape/4.png"
+                      alt="Shape">
+                    <!-- <img class="shape-5  " src="assets/imgs/shape/5.png" alt="Shape"> -->
+                  </div>
+                </div>
+                <div class="col-md-6"></div>
+                <!-- <img src="assets/imgs/" alt="Hero Image" data-lag="0.3"> -->
               </div>
-              <img src="assets/imgs/hero/1.png" alt="Hero Image" data-lag="0.3">
+
             </div>
-          </div>
 
-          <div class="hero__video">
-            <video autoplay loop muted>
-              <source src="assets/video/video.mp4" type="video/mp4">
-            </video>
-          </div>
+            <!-- <div class="hero__video">
+              <video autoplay loop muted>
+                <source src="assets/video/video.mp4" type="video/mp4">
+              </video>
+            </div> -->
 
-          <!-- <img class="shape-1" src="assets/imgs/shape/1.png" alt="Shape">
-          <img class="shape-2" src="assets/imgs/shape/2.png" alt="Shape"> -->
-          <!-- <img class="shape-3" src="assets/imgs/shape/3.png" alt="Shape"> -->
-          <img class="shape-4 cxuSpin-slow" src="assets/imgs/shape/4.png" alt="Shape">
-          <img class="shape-5" src="assets/imgs/shape/5.png" alt="Shape">
+
         </section>
         <!-- Hero area end -->
 
 
         <!-- About area start -->
-        <section class="about__area pt-150 pb-150">
+        <section class="about__area pb-150 pt-4">
           <div class="container">
             <div class="row">
-              <div class="col-xxl-6 col-xl-6 col-xl-6 col-md-6">
-                <div class="about__imgs" data-aos="fade-up">
-                  <div class="image-1">
-                    <img class="border-radius-25" src="assets/imgs/3500305.jpg" alt="Image">
+              <div class="col-xxl-6 col-xl-6 col-xl-6 col-md-6 m-0 pt-5">
+                <div class="about__imgs w-100 h-100" data-aos="fade-up"
+                  style="background-image: url('./assets/video/bg-2.gif');background-position: center;background-size: contain;background-repeat: no-repeat;padding-right: 50px;">
+                  <div class="image-1 " style="padding-top: 130px;">
+                    <!-- <img class="border-radius-25" src="assets/video/Blogging 1.gif" alt="Image"> -->
                   </div>
-                  <div class="image-2">
-                    <img src="assets/imgs/about-2.png" alt="Image" data-speed="0.85">
-                  </div>
-                  <div class="bell" style="background-color:#8c8b8c !important">
-                    <span>
-                      <i class="fa-regular fa-bell text-white"></i>
-                    </span>
+                  <div class="containerbanner">
                   </div>
                   <div class="projects">
-                    <img src="assets/imgs/icon/medal.png" alt="Medal Icon">
-                    <p>
-                      <span class="counter_fast">230+</span>Project Complete
+                    <img src="assets/imgs/icon/medal.png" alt="Medal Icon" style="width: 30px;">
+                    <p style="font-size: 13px;">
+                      <span class="counter_fast" style="font-size: 30px;">230+</span>Project Complete
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="col-xxl-6 col-xl-6 col-xl-6 col-md-6">
+              <div class="col-xxl-6 col-xl-6 col-xl-6 col-md-6" style="padding-left: 6rem;">
                 <div class="about__content" data-aos="fade-up" data-aos-delay="500">
-                  <h2 class="sec-subtitle" style="color: #0d7e10;">ABOUT US <span style="color: #0d7e10;">About
+                  <h2 class="sec-subtitle" style="color: #897bad;">ABOUT US <span style="color: #9eb5f4;">About
                       Us</span>
                   </h2>
-                  <h3 class="sec-title heading-animation">Innovative solutions for a digital world</h3>
-                  <div class="p-animation">
-                    <p>Which is the same as saying through shrinking from toil and pain. These cases are many perfectly
-                      simple and easy to distinguish. In a free hour this when our power of choice is untrammelled and
-                      when nothing prevents</p>
+                  <h3 class="sec-title heading-animation" style="color: rgb(66 48 103);font-weight: 700;">Innovative
+                    solutions for a
+                    digital world</h3>
+                  <div class="p-animation ">
+                    <p style="padding-bottom: 12px;">We are into the creation of next generation technology solutions to
+                      meet the very specific
+                      requirement that you have. And we are aware that every project is unique. Hence we give more
+                      importance specifically to the customer’s requirements.</p>
                   </div>
                   <ul data-aos="fade-up">
-                    <li>How to improve your busines for Helping us </li>
-                    <li>making this the first true generator on the Internet</li>
-                    <li>Creative this the first true generator on the designe</li>
+                    <li style="padding-bottom: 12px;">How to improve your busines for Helping us </li>
+                    <li style="padding-bottom: 12px;">making this the first true generator on the Internet</li>
+                    <li style="padding-bottom: 12px;">Creative this the first true generator on the designe</li>
                   </ul>
                   <div data-aos="fade-up" data-aos-delay="300">
                     <a class="db-btn-arrow" href="about.html">Read More <i class="fa-solid fa-arrow-right"
@@ -249,7 +509,7 @@
 
 
         <!-- Service area start -->
-        <section class="service__area pt-5 pb-150">
+        <section class="service__area pt-1 pb-3">
           <div class="container">
             <div class="row">
               <div class="col-xxl-7 col-xl-7 col-xl-7 col-md-7">
@@ -265,56 +525,98 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-xxl-4 col-xl-4 col-xl-4 col-md-4">
-                <div class="service__item" data-aos="fade-up">
-                  <div class="icon">
-                    <img src="assets/imgs/icon/s3.png" alt="Service Icon">
+
+            <!-- <div class="card-carousel-solution">
+              <div class="scroll-container" id="animation-container" onmouseenter="pauseScroll();"
+                onmouseleave="resumeScroll();">
+                <div class="single-card">
+                  <div class="service__item" data-aos="fade-up">
+                    <div class="icon">
+                      <img src="assets/imgs/icon/pay-roll.png" alt="Service Icon">
+                    </div>
+                    <div class="service__content">
+                      <a href="service-details.html">
+                        <div class="service__title">HR & Payroll Solution</div>
+                      </a>
+                      <p>Our goal is to make the process of finding HR software simple and easy. Our staff has years of
+                        experience in various types and sizes...</p>
+                      <a class="db-btn-arrow" href="service-details.html">Read More <i
+                          class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                   </div>
-                  <div class="service__content">
-                    <a href="service-details.html">
-                      <div class="service__title">Pixel Perfect Design</div>
-                    </a>
-                    <p>Health and medical is a encompasses a wide
-                      range of topics related to health distinguish toil and pain in These</p>
-                    <a class="db-btn-arrow" href="service-details.html">Read More <i
-                        class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="single-card">
+                  <div class="service__item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="icon">
+                      <img src="assets/imgs/icon/queue.png" alt="Service Icon">
+                    </div>
+                    <div class="service__content">
+                      <a href="service-details.html">
+                        <div class="service__title">Queue Management Systems</div>
+                      </a>
+                      <p>Decrease customer wait times, improve your service efficiency, and increase your revenues with
+                        Q-Direct Queue Management System.....</p>
+                      <a class="db-btn-arrow" href="service-details.html">Read More <i
+                          class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-card">
+                  <div class="service__item" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="icon">
+                      <img src="assets/imgs/icon/document-1.png" alt="Service Icon">
+                    </div>
+                    <div class="service__content">
+                      <a href="service-details.html">
+                        <div class="service__title">
+                          Document Expiry Reminder</div>
+                      </a>
+                      <p>Get alert on expiring documents like Contracts, Business Licenses, Employee Insurance,
+                        Passports,
+                        Visa, Vehicle Permits etc...</p>
+                      <a class="db-btn-arrow" href="service-details.html">Read More <i
+                          class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-card">
+                  <div class="service__item" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="icon">
+                      <img src="assets/imgs/icon/document-1.png" alt="Service Icon">
+                    </div>
+                    <div class="service__content">
+                      <a href="service-details.html">
+                        <div class="service__title">
+                          Document Expiry Reminder</div>
+                      </a>
+                      <p>Get alert on expiring documents like Contracts, Business Licenses, Employee Insurance,
+                        Passports,
+                        Visa, Vehicle Permits etc...</p>
+                      <a class="db-btn-arrow" href="service-details.html">Read More <i
+                          class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-card">
+                  <div class="service__item" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="icon">
+                      <img src="assets/imgs/icon/document-1.png" alt="Service Icon">
+                    </div>
+                    <div class="service__content">
+                      <a href="service-details.html">
+                        <div class="service__title">
+                          Document Expiry Reminder</div>
+                      </a>
+                      <p>Get alert on expiring documents like Contracts, Business Licenses, Employee Insurance,
+                        Passports,
+                        Visa, Vehicle Permits etc...</p>
+                      <a class="db-btn-arrow" href="service-details.html">Read More <i
+                          class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-xxl-4 col-xl-4 col-xl-4 col-md-4">
-                <div class="service__item" data-aos="fade-up" data-aos-delay="500">
-                  <div class="icon">
-                    <img src="assets/imgs/icon/s1.png" alt="Service Icon">
-                  </div>
-                  <div class="service__content">
-                    <a href="service-details.html">
-                      <div class="service__title">Creative Edge Solutions</div>
-                    </a>
-                    <p>Health and medical is a encompasses a wide
-                      range of topics related to health distinguish toil and pain in These</p>
-                    <a class="db-btn-arrow" href="service-details.html">Read More <i
-                        class="fa-solid fa-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xxl-4 col-xl-4 col-xl-4 col-md-4">
-                <div class="service__item" data-aos="fade-up" data-aos-delay="1000">
-                  <div class="icon">
-                    <img src="assets/imgs/icon/s2.png" alt="Service Icon">
-                  </div>
-                  <div class="service__content">
-                    <a href="service-details.html">
-                      <div class="service__title">The Pixel Producers</div>
-                    </a>
-                    <p>Health and medical is a encompasses a wide
-                      range of topics related to health distinguish toil and pain in These</p>
-                    <a class="db-btn-arrow" href="service-details.html">Read More <i
-                        class="fa-solid fa-arrow-right"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </div> -->
           </div>
         </section>
         <!-- Service area end -->
@@ -389,10 +691,10 @@
               <div class="col-xxl-7 col-xl-7 col-lg-6">
                 <div class="who__right" data-aos="fade-left" data-aos-delay="1000">
                   <div class="main-img">
-                    <img src="assets/imgs/who/1.png" alt="Image" data-lag="0.2">
+                    <img src="assets/imgs/7053238.jpg" alt="Image" data-lag="0.2">
                   </div>
 
-                  <div class="who__project">
+                  <!-- <div class="who__project">
                     <div class="project-completed">
                       <img src="assets/imgs/who/hand.png" alt="Hand Image">
                       <h3 class="total counter_fast">2k+</h3>
@@ -403,10 +705,10 @@
                   <img src="assets/imgs/shape/7.png" alt="Shape" class="shape">
                   <img src="assets/imgs/shape/8.png" alt="Shape" class="shape-2">
                   <img src="assets/imgs/shape/9.png" alt="Shape" class="shape-3">
+                </div> -->
                 </div>
               </div>
             </div>
-          </div>
         </section>
 
         <!-- FAQs area start -->
@@ -873,8 +1175,8 @@
               <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6">
                 <div class="footer__logo">
                   <img src="assets/imgs/logo/axis-pro.png" style="width: 130px;" alt="Logo">
-                  <p>Our company offers innovative services, detailed terms, and features, along with team and guest
-                    lists</p>
+                  <p>We are one of the leading IT Company in UAE who has highly qualified and experienced technocrats in
+                    various IT sectors</p>
                   <a class="db-btn-arrow" href="about.html">Read More <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
               </div>
@@ -942,7 +1244,6 @@
     </div>
   </div>
 
-
   <!-- All JS Files -->
   <script src="assets/js/jquery-3.6.1.min.js"></script>
   <script src="assets/js/bootstrap.bundle.min.js"></script>
@@ -958,8 +1259,65 @@
   <script src="assets/js/ScrollTrigger.min.js"></script>
   <script src="assets/js/vanilla-tilt.min.js"></script>
   <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const interBubble = document.querySelector('.interactive');
+      let curX = 0;
+      let curY = 0;
+      let tgX = 0;
+      let tgY = 0;
+
+      function move() {
+        curX += (tgX - curX) / 20;
+        curY += (tgY - curY) / 20;
+        interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+        requestAnimationFrame(() => {
+          move();
+        });
+      }
+
+      window.addEventListener('mousemove', (event) => {
+        tgX = event.clientX;
+        tgY = event.clientY;
+      });
+      move();
+    });
 
 
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    let time = 2;
+    const radius = 20;
+
+    const color = function (x, y, r, g, b) {
+      context.fillStyle = `rgb(${r}, ${g}, ${b})`
+      context.fillRect(x, y, 10, 10);
+    }
+    const R = function (x, y, time) {
+      return (Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + time)));
+    }
+
+    const G = function (x, y, time) {
+      return (Math.floor(192 + 64 * Math.sin((x * x * Math.cos(time / 4) + y * y * Math.sin(time / 9)) / 100)));
+    }
+
+    const B = function (x, y, time) {
+      return (Math.floor(192 + 64 * Math.sin(5 * Math.sin(time / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1000)));
+    }
+    const startAnimation = function () {
+      for (x = 0; x <= 30; x++) {
+        for (y = 0; y <= 30; y++) {
+          color(x, y, R(x, y, time), G(x, y, time), B(x, y, time));
+        }
+      }
+      time = time + 0.01;
+      window.requestAnimationFrame(startAnimation);
+    }
+
+
+    startAnimation();
+
+  </script>
 </body>
 
 </html>
